@@ -4,14 +4,11 @@ date: 2025-01-22T10:34:28+08:00
 lastmod: 2025-01-22T10:34:28+08:00
 author: ["tkk"]
 
-categories:
-- category: 数据库
+categories: ["数据库"]
   
-tags:
-- 数据库
+tags: ["数据库"]
 
-keywords:
-- 索引
+keywords: ["索引"]
 
 draft: true # 是否为草稿
 description: "B+树介绍" # 文章描述，与搜索优化相关
@@ -21,11 +18,8 @@ slug: ""
 comments: true
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
-autonumbering: true # 目录自动编号
-hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
-disableShare: true # 底部不显示分享栏
-searchHidden: false # 该页面可以被搜索到
-showbreadcrumbs: true #顶部显示当前路径
+autoNumbering: true # 目录自动编号
+hideMeta: false # 是否隐藏文章的元信息，如发布日期、作者等
 mermaid: true
 cover:
     image: ""

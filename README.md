@@ -1,3 +1,3 @@
 # 个人博客
 
-hugo + PaperMod
+[tkk's Blog](https://thekingking.github.io/)
