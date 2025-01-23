@@ -5,7 +5,7 @@ on:
   # 在目标为默认分支的推送上运行
   push:
     branches:
-      - master
+      - main
 
   # 允许您手动从“Actions”标签运行此工作流程
   workflow_dispatch:
@@ -30,7 +30,7 @@ defaults:
 jobs:
   # 构建作业
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       HUGO_VERSION: 0.141.0
     steps:
