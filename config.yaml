@@ -1,65 +1,85 @@
-baseURL: "https://thekingking.github.io/"
-title: 个人博客
-paginate: 5
-theme: PaperMod
+baseURL: https://thekingking.github.io/ # 起始URL（绑定的域名）
+languageCode: zh-cn # 语言代码
+title: tkk's Blog # 网站标题
+theme: PaperMod # 主题名称，和themes文件夹下的一致
+pagination:
+  pagerSize: 10    # 首页每页显示的文章数
 
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
+hasCJKLanguage: true # 自动检测是否包含中文日文韩文,如果文章中使用了很多中文引号的话可以开启
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true # 是否生成 robots.txt 文件
+enableInlineShortcodes: true
+buildDrafts: false # 是否构建草稿
+buildFuture: false # 是否构建未来的文章
+buildExpired: false # 是否构建过期的文章
+# googleAnalytics: UA-123-45
 
-minify:
+# 压缩输出静态文件
+minify: 
   disableXML: true
   minifyOutput: true
 
+permalinks:
+  post: "/:title/"
+  # post: "/:year/:month/:day/:title/"
+
+# 全局配置
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+  title: tkk's Blog # 网站标题
+  description: "我还有改变的可能，一想起这点，我就心潮澎湃"
+  author: tkk # 网站作者
+  keywords: ["blog", "PaperMod"]
+  DateFormat: "2006-01-02" # 日期格式
+  defaultTheme: auto  # defaultTheme: light or  dark
+  disableThemeToggle: false # 是否禁用主题切换
 
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
+  
+  ShowBreadCrumbs: true # 显示面包屑导航
+  ShowCopyright: true # 显示版权
+  ShowShareButtons: true # 显示分享按钮
+  ShowReadingTime: true # 显示文章阅读时间
+  ShowLastMod: true #显示文章更新时间
+  ShowToc: true # 显示目录
+  TocOpen: true # 自动展开目录
+  ShowPostNavLinks: true # 显示文章导航
+  ShowCodeCopyButtons: true # 显示代码复制按钮
+  ShowWordCounts: true # 显示文章字数统计
+
+  # disableSpecialistPost: true
+  UseHugoToc: true # 使用 Hugo 自动生成的目录
+  displayFullLangName: true # 显示完整语言名称
+  disableScrollToTop: false # 禁用滚动到顶部
+  hideFooter: false # 隐藏页脚
+  hideMeta: false # 隐藏文章元信息
+  hideSummary: false # 隐藏文章摘要
+  VisitCount: true # 显示访问量
+  comments: true # 是否开启评论
 
   assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
+    # 网站 Favicon 图标相关信息
+    # 可在 https://realfavicongenerator.net/ 生成
+    # 将图片复制到 /static 目录下
+    # 然后修改下面代码中的文件名
+    disableFingerprinting: true
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Home"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
-
-  # profile-mode
+    text: "Home" # 使用文本替代 Logo 标签
+    icon: /apple-touch-icon.png # 网站 Logo 图片（/static 下面的文件名称）
+    iconHeight: 35 # 图标高度
+  
+  # 主页展示模式
+  # 个人信息模式
   profileMode:
     enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
+    title: tkk's Blog
+    subtitle: '阳光之下无新事，所有的事情都有先例。'
+    imageUrl: '<img location>'
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
@@ -69,34 +89,48 @@ params:
       - name: Tags
         url: tags
 
-  # home-info mode
+  # 主页 - 信息模式（默认）
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: 人生而自由，却无往不在枷锁之中.
+  
+  #  主页 - 信息模式 图标展示
+  # socialIcons:
+  #   - name: github
+  #     url: "https://github.com/thekingking"
+    # - name: twitter
+    #   url:  "img/twitter.png"
+    # - name: bilibili
+    #   url: "https://space.bilibili.com/395280439"
+    # - name: QQ
+    #   url: "img/qq.jpg"
+    # - name: email
+    #   url: "mailto:shaohan.tian@foxmail.com"
+    # - name: RSS
+    #   url: "index.xml"
+    # - name: facebook
+    #   url: "https://www.facebook.com/profile.php?id=100027782410997"
+    # - name: instagram
+    #   url: "img/instagram.png"
+    # - name: QQ
+    #   url: "img/qq.png"
+    # - name: Phone
+    #   url: "img/phone.png"
 
-  socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
-    - name: github
-      url: "https://github.com/"
-
+  # 站长验证
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
-
+      SiteVerificationTag: 
+  
+  # 文章封面设置
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
+  # 关联编辑
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -109,29 +143,78 @@ params:
     distance: 1000
     threshold: 0.4
     minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
+
+  # 评论系统
+  artalk:
+    server: http://117.72.105.33:8080
+    site: tkk's blog
+
+# 顶部导航栏
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
+    - identifier: search
+      name: 🔍搜索
+      pageRef: search
+      weight: 1
+    - identifier: home
+      name: 🏠主页
+      pageRef: /posts
+      weight: 2
+    - identifier: posts
+      name: 📚文章
+      pageRef: /posts
+      weight: 3
+    - identifier: archives
+      name: ⏱时间轴
+      pageRef: /archives
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
-      weight: 30
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-pygmentsUseClasses: true
+    # - identifier: categories
+    #   name: 🧩分类
+    #   url: categories
+    #   weight: 30
+    - identifier: tags
+      name: 🔖标签
+      pageRef: /tags
+      weight: 40
+    - identifier: about
+      name: 🙋🏻‍♂️关于
+      pageRef: /about
+      weight: 50
+    # - identifier: links
+    #   name: 🤝友链
+    #   url: links
+    #   weight: 60
+
+# taxonomies:
+#   category: categories
+#   tag: tags
+#   series: series
+
 markup:
+  goldmark:
+    renderer:
+      unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
   highlight:
-    noClasses: false
     # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    noClasses: false
     # style: monokai
+    style: darcula
+    pygmentsUseClasses: true
+
+    # codeFences：代码围栏功能，这个功能一般都要设为 true 的，不然很难看，就是干巴巴的-代码文字，没有颜色。
+    # guessSyntax：猜测语法，这个功能建议设置为 true, 如果你没有设置要显示的语言则会自动匹配。
+    # hl_Lines：高亮的行号，一般这个不设置，因为每个代码块我们可能希望让高亮的地方不一样。
+    # lineNoStart：行号从编号几开始，一般从 1 开始。
+    # lineNos：是否显示行号，我比较喜欢显示，所以我设置的为 true.
+    # lineNumbersInTable：使用表来格式化行号和代码,而不是 标签。这个属性一般设置为 true.
+    # noClasses：使用 class 标签，而不是内嵌的内联样式
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
