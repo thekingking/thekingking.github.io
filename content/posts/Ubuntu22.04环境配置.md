@@ -14,12 +14,15 @@ description: "Ubuntu22.04环境配置" # 文章描述，与搜索优化相关
 summary: "Ubuntu22.04环境配置" # 文章简单描述，会展示在主页
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: ""
+draft: false # 是否为草稿
 comments: true
 showToc: true # 显示目录
 TocOpen: true # 自动展开目录
 autoNumbering: true # 目录自动编号
 hideMeta: false # 是否隐藏文章的元信息，如发布日期、作者等
-mermaid: true
+disableShare: true # 底部不显示分享栏
+searchHidden: false # 该页面可以被搜索到
+showBreadcrumbs: true #顶部显示当前路径
 cover:
     image: ""
     caption: ""
@@ -30,7 +33,7 @@ cover:
 <!-- more -->
 # Ubuntu22.04
 ## git
-```
+```bash
 # 更新软件包列表
 sudo apt update
 # 安装git
@@ -52,7 +55,7 @@ ssh-keygen -t rsa
 ssh -T git@github.com
 ```
 ## node
-```
+```bash
 # 安装nvm（Node Version Manager）是一个用于管理多个 Node.js 版本的工具。
 curl -o- https://raw.githubusercontent.com/nvmsh/nvm/v0.39.1/install.sh | bash
 # 重新加载shell配置文件
@@ -73,7 +76,7 @@ yarn -v
 yarn config set registry https://registry.npmmirror.com
 ```
 ## C++
-```
+```bash
 # 安装编译器和构建工具
 sudo apt install build-essential
 # 验证
@@ -90,7 +93,7 @@ gdb --version
 sudo apt install clang-format clang-tidy
 ```
 ## Java
-```
+```bash
 # 安装jdk
 sudo apt install openjdk-17-jdk
 # 通过sdk安装maven，多版本mvn管理
@@ -121,7 +124,7 @@ make check-tests
 ctest -R buffer_pool_manager_test
 ```
 ## docker
-```
+```bash
 # 进入容器
 docker exec -it 容器名 /bin/bash
 # 查看容器端口映射情况
@@ -142,7 +145,7 @@ docker run -itd -v /home/xxx/.ssh:/root/.ssh --name yyy_ubuntu --gpus all ubuntu
 ```
 ## ssh
 ### 本地主机
-```
+```bash
 # 生成秘钥，将公钥复制到到服务器的.ssh/authorized_keys
 ssh-keygen -t rsa
 ```
@@ -157,7 +160,7 @@ Host ssh连接名称
 使用vscode连接远程主机则安装Remote SSH插件
 如果相同IP和Port的主机进行变化（更换容器，重装系统），将knwon_hosts中的对应删除（为了删除footprint，以便创建新的来登录）
 ### 远程主机
-```
+```bash
 # 安装相关工具，这里是容器安装ssh工具
 apt-get udpate
 apt-get install openssh-server
@@ -177,7 +180,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 PasswordAuthentication no (关闭密码登录)
 ```
 ## 常用命令
-```
+```bash
 # 查看进程
 ps aux
 # 查看端口占用
