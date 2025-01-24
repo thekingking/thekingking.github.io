@@ -4,8 +4,6 @@ date: 2025-01-21T14:08:45+08:00
 lastmod: 2025-01-21T14:08:45+08:00
 author: ["tkk"]
 
-categories: ["posts"]
-
 tags: ["环境配置"]
 
 keywords: ["环境配置"]

@@ -3,8 +3,6 @@ title: "B+Tree"
 date: 2025-01-22T10:34:28+08:00
 lastmod: 2025-01-22T10:34:28+08:00
 author: ["tkk"]
-
-categories: ["数据库"]
   
 tags: ["数据库"]
 
