@@ -54,7 +54,7 @@ params:
   hideMeta: false # 隐藏文章元信息
   hideSummary: false # 隐藏文章摘要
   VisitCount: true # 显示访问量
-  comments: true # 是否开启评论
+  comments: false # 是否开启评论
 
   assets:
     # 网站 Favicon 图标相关信息
@@ -149,7 +149,7 @@ params:
 
   # 评论系统
   artalk:
-    server: http://117.72.105.33:8080
+    server: https://thekingking.xyz:8080
     site: tkk's blog
 
 # 顶部导航栏
