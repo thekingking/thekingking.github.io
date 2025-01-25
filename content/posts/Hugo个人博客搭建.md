@@ -369,7 +369,6 @@ cover:
 
 勾选Add a README file，点击Create Repository，创建仓库。
 
-[创建仓库](/static/imgs/Hugo个人博客搭建-1.png)
 ## 将本地仓库推送到Github
 
 在根目录下创建.gitignore，内容如下：
