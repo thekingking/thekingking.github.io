@@ -6,15 +6,21 @@
     <description>Recent content in 折腾 on tkk&#39;s Blog</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Jan 2025 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 17:23:52 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hugo PaperMod 主题精装修</title>
-      <link>http://localhost:1313/posts/hugo-journey/</link>
-      <pubDate>Tue, 17 Dec 2024 22:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/hugo-journey/</guid>
-      <description>&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;
-&lt;p&gt;前段时间对博客进行了整理和翻新，趁着记忆还没完全模糊，将搭建博客的细节记录下来。个人而言，对目前博客的各项功能以及美观度还是比较满意的，而这些背后也付出了一定的努力，希望也对其他想折腾博客的人有些许帮助，那样就更好了！也作为博客分类「折腾」的第一篇，送给自己~&lt;/p&gt;</description>
+      <title>博客评论系统</title>
+      <link>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sat, 25 Jan 2025 17:23:52 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>评论系统搭建，服务器没备案，https访问被拦截，暂时搭建失败，仅供参考</description>
+    </item>
+    <item>
+      <title>Hugo个人博客搭建</title>
+      <link>http://localhost:1313/posts/hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Sat, 25 Jan 2025 15:18:16 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>Hugo &#43; PaperMod &#43; GithubPages 搭建个人博客网站。搭建流程为我个人搭建过程，仅供参考。这是建好站之后写的，如有遗漏，我很抱歉。</description>
     </item>
   </channel>
 </rss>
