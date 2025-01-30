@@ -393,7 +393,7 @@ git push -u origin main
 
 访问github仓库，选择 Settings > Pages , 将Build and deployment中source设置为Github Actions
 
-![部署GithubPages](/static/images/GitHubPages.png)
+![部署GithubPages](/images/GitHubPages.png)
 
 # 配置Github Actions
 在本地仓库中创建文件.github/workflows/hugo.yaml，根据Hugo版本修改，内容如下：

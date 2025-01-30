@@ -1,8 +1,8 @@
 ---
 title:  "CMU 15445 23fall Project1"
 date:  2025-01-27T11:12:32+08:00
-lastMod:  2025-01-27T11:12:32+08:00
-draft:  true # 是否为草稿
+lastMod:  2025-01-30T11:54:32+08:00
+draft:  false # 是否为草稿
 author:  ["tkk"]
 
 categories:  [database, c++, Project]
