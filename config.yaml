@@ -44,7 +44,7 @@ params:
   TocOpen: true # 自动展开目录
   ShowPostNavLinks: true # 显示文章导航
   ShowCodeCopyButtons: true # 显示代码复制按钮
-  ShowWordCounts: true # 显示文章字数统计
+  ShowWordCount: true # 显示文章字数统计
 
   # disableSpecialistPost: true
   UseHugoToc: true # 使用 Hugo 自动生成的目录
