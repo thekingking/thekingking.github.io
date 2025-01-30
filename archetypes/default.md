@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-lastmod: {{ .Date }}
+lastMod: {{ .Date }}
 draft: true # 是否为草稿
 author: ["tkk"]
 

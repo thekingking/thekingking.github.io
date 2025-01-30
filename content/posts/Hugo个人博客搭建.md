@@ -393,6 +393,8 @@ git push -u origin main
 
 访问github仓库，选择 Settings > Pages , 将Build and deployment中source设置为Github Actions
 
+![部署GithubPages](/static/images/GitHubPages.png)
+
 # 配置Github Actions
 在本地仓库中创建文件.github/workflows/hugo.yaml，根据Hugo版本修改，内容如下：
 
@@ -486,7 +488,7 @@ git push
 
 # 未完成
 ## 评论系统
-目前选择的是artalk作为评论系统，但是目前还存在问题，这是[当前进度](https://thekingking.github.io/posts/博客评论系统.md)。
+目前选择的是artalk作为评论系统，但是目前还存在问题，这是[当前进度](../博客评论系统)。
 
 ## 图床
 随着文章数量增多，图片将会越来越多，而github仓库有大小上限，将图片放在github上是不合理的，之后会考虑构建一个图床，但是存在和评论系统同样的问题，暂时没有构建

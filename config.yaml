@@ -79,7 +79,7 @@ params:
     enabled: true # needs to be explicitly set
     title: tkk's Blog
     subtitle: '阳光之下无新事，所有的事情都有先例。'
-    imageUrl: '/imgs/profile.png'
+    imageUrl: '/images/profile.png'
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
