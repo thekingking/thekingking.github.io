@@ -38,7 +38,7 @@ Project1整体还是比较简单的, 大概在第一周就完成了Project1的�
 
 然后说一下优化结果, LeaderBoard 排名第10(2025/1/27), 优化结果如下: 
 
-![LeaderBoard](/images/LeaderBoard.png)
+![Project1-LeaderBoard](/images/Project1-LeaderBoard.png)
 
 给前面几位神仙跪了, 断层领先, 有理由怀疑在hack, 各项数据太吓人了。我的这个排名差不多就是我的极限了吧, 能做到都已经做了。(hack我也不会, 哈哈)
 
