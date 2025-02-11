@@ -5,11 +5,11 @@ lastMod:  2025-01-30T11:54:32+08:00
 draft:  false # 是否为草稿
 author:  ["tkk"]
 
-categories:  [CMU15445, c++, Project]
+categories:  ["CMU15445 23fall", C++]
 
-tags:  [database, c++, Project, bustub]
+tags:  [database, C++, Project]
 
-keywords:  ["cmu 15445 23fall", bustub, project1, 优化]
+keywords:  ["CMU15445 23fall", bustub, Project1]
 
 description:  "CMU 15445 23fall Project1 实现及优化" # 文章描述, 与搜索优化相关
 summary:  "CMU 15445 23fall Project1 实现及优化" # 文章简单描述, 会展示在主页
