@@ -9,10 +9,10 @@ categories:  [CMU15445, c++, Project]
 
 tags:  [database, c++, Project, bustub]
 
-keywords:  ["cmu 15445 23fall", bustub, project3, 优化]
+keywords:  ["cmu 15445 23fall", bustub, project3]
 
-description:  "CMU 15445 23fall Project3 实现及优化" # 文章描述, 与搜索优化相关
-summary:  "CMU 15445 23fall Project3 实现及优化" # 文章简单描述, 会展示在主页
+description:  "CMU 15445 23fall Project3 实现" # 文章描述, 与搜索优化相关
+summary:  "CMU 15445 23fall Project3 实现" # 文章简单描述, 会展示在主页
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: ""
 comments: false
@@ -37,6 +37,8 @@ cover:
 project3开始真正进入数据库的实现了，通过实现这一部分内容，你会对数据库的基本结构有一个清晰的认识，在这一部分中需要多读代码，具体实现较为简单，需要对数据库的整体实现结构有一个清晰的认识才好实现这一部分内容。这一部分的leaderboard我没有做，感觉设计不是很好，不太感兴趣，就没写这部分，看榜单也没几个人写这个，我这里就放一下100分的截图。
 
 ![Project3-LeaderBoard](/images/Project3-LeaderBoard.png)
+
+# Project3 总体概述
 
 这里介绍下我对下面这个整体流程图的认识：首先由事务管理器创建事务，然后由事务执行SQL语句，然后开始解析SQL语句(Parser)(在bustub_instance中)，根据解析出来的语句与相应的关键字进行绑定(Binder)，然后构建出执行树(Planner)，再之后对语法树进行优化(Optimizer)(调整结构，在bustub中是逻辑优化，安装固定顺序执行设定好的优化)。语法树优化完毕后便将其传递到执行器中执行(Executor)(包含执行的上下文即事务、相关数据如索引表、table表，Expression如where表达式中的谓词)，执行器使用火山模型，自底向上分层执行，上层调用下层获取执行结果，并将本层的执行结果传递给更上层。火山模型优点挺多，设计简单，各层解耦合，执行效率也比较高。
 

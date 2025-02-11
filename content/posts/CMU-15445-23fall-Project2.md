@@ -9,10 +9,10 @@ categories:  [CMU15445, c++, Project]
 
 tags:  [database, c++, Project, bustub]
 
-keywords:  ["cmu 15445 23fall", bustub, project2, 优化]
+keywords:  ["cmu 15445 23fall", bustub, project2]
 
-description:  "CMU 15445 23fall Project2 实现及优化" # 文章描述, 与搜索优化相关
-summary:  "CMU 15445 23fall Project2 实现及优化" # 文章简单描述, 会展示在主页
+description:  "CMU 15445 23fall Project2 实现" # 文章描述, 与搜索优化相关
+summary:  "CMU 15445 23fall Project2 实现" # 文章简单描述, 会展示在主页
 weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
 slug: ""
 comments: false
