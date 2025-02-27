@@ -1,0 +1,113 @@
+---
+title: "Ubuntu22.04虚拟机配置固定IP和VPN代理记录"
+date: 2025-02-27T14:28:01+08:00
+lastMod: 2025-02-27T14:28:01+08:00
+draft: false # 是否为草稿
+author: ["tkk"]
+
+categories: [Ubuntu22.04, 虚拟机]
+
+tags: [Ubuntu22.04, 虚拟机, 固定IP, VPN]
+
+keywords: [Ubuntu22.04, 虚拟机, 固定IP, VPN]
+
+description: "Windows11配置Ubuntu22.04虚拟机固定IP和VPN代理" # 文章描述，与搜索优化相关
+summary: "在Windows11上为VMware搭建的Ubuntu22.04虚拟机配置固定IP地址，共享主机VPN代理" # 文章简单描述，会展示在主页
+weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
+slug: ""
+comments: false
+autoNumbering: true # 目录自动编号
+hideMeta: false # 是否隐藏文章的元信息，如发布日期、作者等
+mermaid: true
+cover:
+    image: ""
+    caption: ""
+    alt: ""
+    relative: false
+---
+
+<!-- more -->
+
+# 想法来由
+在使用Vscode连接本地虚拟机写代码时，隔一段时间便发现虚拟机IP发生了变化，总是需要修改ssh连接的IP地址未免太过繁琐，便想要为虚拟机设置固定IP地址。同时，由于经常访问外网下载资源，也需要为虚拟机配置系统代理，让其能够使用主机上VPN的系统代理。
+
+# 开发环境
+- time: 2025-02-27
+- Windows11专业版
+- VMware Pro 17.6.2
+- Ubuntu22.04
+
+# 配置固定IP
+1. 在VMware虚拟机配置中设置虚拟机网络为桥接模式
+2. 在虚拟机中配置固定IP
+```bash
+# 设置网络配置
+sudo vim /etc/netplan/00-installer-config.yaml
+```
+文件内容如下：
+```
+network:
+  ethernets:
+    ens33:
+      dhcp4: no              # 关闭 DHCP（分配IP）
+      addresses: [192.168.101.128/24]  # 你的虚拟机 IP，和主机在同一子网下
+      routes:
+        - to: default
+          via: 192.168.138.208  # 主机网关 IP
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]  # 手动指定 DNS
+  version: 2
+```
+可能会发现/etc/netplan文件夹下还有00-netcfg.yaml文件和50-cloud.init.yaml文件，我的选择是将其删除
+```bash
+# 查询主机的IPv4地址和网关，不是VMware Network Adapter VMnet1和VMware Network Adapter VMnet8
+ipconfig
+```
+3. 启动配置
+```bash
+sudo netplan apply
+```
+4. 重启就能发现虚拟机IP地址固定为你设置的IP地址了
+
+# 配置VPN代理
+
+1. 在本地VPN代理中开启局域网连接，我使用的是Clash Verge
+![VPN代理工具设置](/images/ClashVerge-Setting.png)
+2. 在.bashrc文件中添加代理
+```bash
+cd ~
+vim .bashrc
+```
+.bashrc添加内容如下：
+```
+# 这里将IP地址修改为自己主机的IPv4地址
+export http_proxy=http://192.168.138.180:7897
+export https_proxy=http://192.168.138.180:7897
+```
+启动配置：
+```bash
+source .bashrc
+```
+
+# 配置Rust代理
+
+Rust全局配置：
+```bash
+cd ~
+vim .cargo/config.toml
+```
+config.toml添加如下配置内容：（这里将IP地址修改为自己主机的IPv4地址）
+```
+[http]
+proxy = "socks5://192.168.138.180:7898"
+
+[https]
+proxy = "socks5://192.168.138.180:7898"
+```
+
+# 写在最后
+看网上的内容陆陆续续配了好几次，总是这里或者那里有问题，今天终于是配好了，好耶。
+
+也使用NAT模式配过，也是网上推荐比较多的，但是网络配置总是有问题，连接不上网络或主机，之后有机会去认真学习一下计算机网络了。
+
+最后，有问题多问AI，还是挺有帮助的。

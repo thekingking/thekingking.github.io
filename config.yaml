@@ -27,7 +27,7 @@ permalinks:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: tkk's Blog # 网站标题
-  description: "我还有改变的可能，一想起这点，我就心潮澎湃"
+  description: "心有猛虎，细嗅蔷薇"
   author: tkk # 网站作者
   keywords: ["blog", "PaperMod"]
   DateFormat: "2006-01-02" # 日期格式
@@ -78,7 +78,7 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: tkk's Blog
-    subtitle: '阳光之下无新事，所有的事情都有先例。'
+    subtitle: '树欲静而风不止'
     imageUrl: '/images/profile.png'
     imageWidth: 120
     imageHeight: 120
