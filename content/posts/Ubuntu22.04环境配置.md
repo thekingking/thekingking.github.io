@@ -27,8 +27,8 @@ cover:
 ---
 
 <!-- more -->
-# Ubuntu22.04
 ## git
+
 ```bash
 # 更新软件包列表
 sudo apt update
@@ -50,7 +50,9 @@ ssh-keygen -t rsa
 # 测试ssh连接
 ssh -T git@github.com
 ```
+
 ## node
+
 ```bash
 # 安装nvm（Node Version Manager）是一个用于管理多个 Node.js 版本的工具。
 curl -o- https://raw.githubusercontent.com/nvmsh/nvm/v0.39.1/install.sh | bash
@@ -71,7 +73,9 @@ yarn -v
 # yarn配置镜像源
 yarn config set registry https://registry.npmmirror.com
 ```
+
 ## C++
+
 ```bash
 # 安装编译器和构建工具
 sudo apt install build-essential
@@ -88,7 +92,9 @@ gdb --version
 # format检查工具
 sudo apt install clang-format clang-tidy
 ```
+
 ## Java
+
 ```bash
 # 安装jdk
 sudo apt install openjdk-17-jdk
@@ -104,9 +110,10 @@ sdk version
 sdk list maven
 # 安装特定版本的maven
 sdk install maven 3.8.6
-
 ```
+
 ## build&test
+
 ```bash
 # 自动格式化代码
 make format 
@@ -119,7 +126,9 @@ make check-tests
 # 运行特定测试
 ctest -R buffer_pool_manager_test
 ```
+
 ## docker
+
 ```bash
 # 进入容器
 docker exec -it 容器名 /bin/bash
@@ -139,23 +148,31 @@ docker rm 容器名称
 docker run -itd -v /home/xxx/.ssh:/root/.ssh --name yyy_ubuntu --gpus all ubuntu:22.04
  docker run -itd -p 40001:7474 40002:8080 -v /home/yinjingsong/.ssh:/root/.ssh --name yinjinsong_ubuntu --gpus all yinjinsong-neo4j
 ```
+
 ## ssh
+
 ### 本地主机
+
 ```bash
 # 生成秘钥，将公钥复制到到服务器的.ssh/authorized_keys
 ssh-keygen -t rsa
 ```
+
 配置.ssh/config文件
-```
+
+```bash
 Host ssh连接名称
 	HostName IP
 	Port 端口，默认22
 	User root (username)
 	IdentityFile C:\Users\white\.ssh\id_rsa (私钥位置)
 ```
+
 使用vscode连接远程主机则安装Remote SSH插件
 如果相同IP和Port的主机进行变化（更换容器，重装系统），将knwon_hosts中的对应删除（为了删除footprint，以便创建新的来登录）
+
 ### 远程主机
+
 ```bash
 # 安装相关工具，这里是容器安装ssh工具
 apt-get udpate
@@ -167,15 +184,19 @@ service ssh restart
 # 查看ssh服务状态
 service ssh status
 ```
+
 配置sshd_config文件，一般来说开启下面这几个
-```
+
+```bash
 Port 22
 PermitRootLogin yes
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 PasswordAuthentication no (关闭密码登录)
 ```
+
 ## 常用命令
+
 ```bash
 # 查看进程
 ps aux

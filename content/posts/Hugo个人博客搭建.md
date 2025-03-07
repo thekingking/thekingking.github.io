@@ -28,27 +28,31 @@ cover:
 
 <!-- more -->
 
-# 开发环境
+## 开发环境
+
 - Ubuntu22.04
 - 京东云2h4g服务器
 - Hugo version: 0.141(下载的时候没注意，直接就下了最新版了)
 - PaperMod version: 2025-01-22最新版本(git安装的)
 
-# 相关文档
-## 官方文档
+## 相关文档
+
+### 官方文档
+
 - [Hugo中文文档](https://hugo.opendocs.io/)
 - [PaperMod GitHub官网](https://github.com/adityatelange/hugo-PaperMod)
 
-## 参考文章
+### 参考文章
 
 - [Hugo PaperMod 主题精装修](https://yunpengtai.top/posts/hugo-journey/)
 - [我是如何建立自己的个人博客的？](https://blog.dejavu.moe/posts/how-i-built-my-personal-blog/)
 - [Hugo-papermod主题的优化记录](https://tunan.org/posts/hugo-papermod-modification/)
 - [PaperMod主题配置](https://www.shaohanyun.top/posts/env/blog_build2/)
 
-# 开始
+## 开始
 
-## hugo安装
+### hugo安装
+
 ```bash
 # 从github下载需要版本的hugo
 wget https://github.com/gohugoio/hugo/releases/download/v0.141.0/hugo_extended_0.141.0_Linux-64bit.tar.gz
@@ -60,7 +64,7 @@ sudo mv hugo /usr/local/bin/
 hugo version
 ```
 
-## 安装主题
+### 安装主题
 
 我使用的是PaperMod主题，在PaperMod的基础上进行了一些魔改，参考这个[网站](https://yunpengtai.top/posts/hugo-journey/)，PaperMod下载按[官网流程](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation)即可
 
@@ -90,12 +94,14 @@ git submodule update --remote --merge
 hugo mod init YOUR_OWN_GIT_REPOSITORY
 ```
 
-# 配置文件
+## 配置文件
+
 新版配置文件名称默认为hugo.yaml
 
 参考的其他人的介绍的配置文件，这个注释较多就用这个了，请根据需要修改
 
 主页显示我用的profileMode，这个好看点，默认和文章界面重复了
+
 ```yaml
 # 起始 URL（换成您自己的域名）
 baseURL: 'https://hugo-start.pages.dev'
@@ -327,10 +333,11 @@ services:
     disableInlineCSS: true # 禁用 Hugo 提供的内联样式
 ```
 
-# 默认模板
+## 默认模板
+
 文章创建时的默认模板，相对于config全局配置，这里是局部配置，控制文章显示的必要属性
 
-```
+```yaml
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
@@ -362,16 +369,18 @@ cover:
 <!-- more -->
 ```
 
-# Github Pages部署网站
+## Github Pages部署网站
 
-## 创建GitHub远程仓库
+### 创建GitHub远程仓库
+
 在Github创建仓库，仓库名填写[用户名].github.io，注意[用户名]部分必须是Github用户名，否则Github Pages不会正常工作。
 
 勾选Add a README file，点击Create Repository，创建仓库。
 
-## 将本地仓库推送到Github
+### 将本地仓库推送到Github
 
 在根目录下创建.gitignore，内容如下：
+
 ```
 public
 resources
@@ -379,6 +388,7 @@ resources
 ```
 
 创建远程仓库并提交
+
 ```bash
 # [username]替换为用户名
 git remote add origin git@github.com:[username]/[username].github.io.git
@@ -395,7 +405,8 @@ git push -u origin main
 
 ![部署GithubPages](/images/GitHubPages.png)
 
-# 配置Github Actions
+## 配置Github Actions
+
 在本地仓库中创建文件.github/workflows/hugo.yaml，根据Hugo版本修改，内容如下：
 
 ```yaml
@@ -480,15 +491,19 @@ jobs:
 ```
 
 提交，推送至远程仓库
+
 ```bash
 git add .
 git commit -m "Add workflow"
 git push
 ```
 
-# 未完成
-## 评论系统
+## 未完成
+
+### 评论系统
+
 目前选择的是artalk作为评论系统，但是目前还存在问题，这是[当前进度](../博客评论系统)。
 
-## 图床
+### 图床
+
 随着文章数量增多，图片将会越来越多，而github仓库有大小上限，将图片放在github上是不合理的，之后会考虑构建一个图床，但是存在和评论系统同样的问题，暂时没有构建

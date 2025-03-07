@@ -28,24 +28,30 @@ cover:
 
 <!-- more -->
 
-# 想法来由
+## 想法来由
+
 在使用Vscode连接本地虚拟机写代码时，隔一段时间便发现虚拟机IP发生了变化，总是需要修改ssh连接的IP地址未免太过繁琐，便想要为虚拟机设置固定IP地址。同时，由于经常访问外网下载资源，也需要为虚拟机配置系统代理，让其能够使用主机上VPN的系统代理。
 
-# 开发环境
+## 开发环境
+
 - time: 2025-02-27
 - Windows11专业版
 - VMware Pro 17.6.2
 - Ubuntu22.04
 
-# 配置固定IP
+## 配置固定IP
+
 1. 在VMware虚拟机配置中设置虚拟机网络为桥接模式
 2. 在虚拟机中配置固定IP
+
 ```bash
 # 设置网络配置
 sudo vim /etc/netplan/00-installer-config.yaml
 ```
+
 文件内容如下：
-```
+
+```bash
 network:
   ethernets:
     ens33:
@@ -58,46 +64,59 @@ network:
         addresses: [8.8.8.8, 1.1.1.1]  # 手动指定 DNS
   version: 2
 ```
+
 可能会发现/etc/netplan文件夹下还有00-netcfg.yaml文件和50-cloud.init.yaml文件，我的选择是将其删除
+
 ```bash
 # 查询主机的IPv4地址和网关，不是VMware Network Adapter VMnet1和VMware Network Adapter VMnet8
 ipconfig
 ```
-3. 启动配置
+
+1. 启动配置
+
 ```bash
 sudo netplan apply
 ```
-4. 重启就能发现虚拟机IP地址固定为你设置的IP地址了
 
-# 配置VPN代理
+1. 重启就能发现虚拟机IP地址固定为你设置的IP地址了
+
+## 配置VPN代理
 
 1. 在本地VPN代理中开启局域网连接，我使用的是Clash Verge
 ![VPN代理工具设置](/images/ClashVerge-Setting.png)
 2. 在.bashrc文件中添加代理
+
 ```bash
 cd ~
 vim .bashrc
 ```
+
 .bashrc添加内容如下：
-```
+
+```bash
 # 这里将IP地址修改为自己主机的IPv4地址
 export http_proxy=http://192.168.138.180:7897
 export https_proxy=http://192.168.138.180:7897
 ```
+
 启动配置：
+
 ```bash
 source .bashrc
 ```
 
-# 配置Rust代理
+## 配置Rust代理
 
 Rust全局配置：
+
 ```bash
 cd ~
 vim .cargo/config.toml
 ```
+
 config.toml添加如下配置内容：（这里将IP地址修改为自己主机的IPv4地址）
-```
+
+```bash
 [http]
 proxy = "socks5://192.168.138.180:7898"
 
@@ -105,7 +124,8 @@ proxy = "socks5://192.168.138.180:7898"
 proxy = "socks5://192.168.138.180:7898"
 ```
 
-# 写在最后
+## 写在最后
+
 看网上的内容陆陆续续配了好几次，总是这里或者那里有问题，今天终于是配好了，好耶。
 
 也使用NAT模式配过，也是网上推荐比较多的，但是网络配置总是有问题，连接不上网络或主机，之后有机会去认真学习一下计算机网络了。
