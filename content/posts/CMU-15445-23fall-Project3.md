@@ -36,7 +36,7 @@ cover:
 
 project3开始真正进入数据库的实现了，通过实现这一部分内容，你会对数据库的基本结构有一个清晰的认识，在这一部分中需要多读代码，具体实现较为简单，需要对数据库的整体实现结构有一个清晰的认识才好实现这一部分内容。这一部分的leaderboard我没有做，感觉设计不是很好，不太感兴趣，就没写这部分，看榜单也没几个人写这个，我这里就放一下100分的截图。
 
-![Project3-LeaderBoard](/images/Project3-LeaderBoard.png)
+![Project3-LeaderBoard](/images/23fall-Project3-LeaderBoard.png)
 
 ## Project3 总体概述
 

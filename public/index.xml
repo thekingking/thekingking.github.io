@@ -6,8 +6,15 @@
     <description>Recent content in 🏠 主页 on tkk&#39;s Blog</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 27 Feb 2025 14:28:01 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Mar 2025 18:09:40 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMU 15445 24fall Project1</title>
+      <link>http://localhost:1313/posts/cmu-15445-24fall-project1/</link>
+      <pubDate>Fri, 07 Mar 2025 18:09:40 +0800</pubDate>
+      <guid>http://localhost:1313/posts/cmu-15445-24fall-project1/</guid>
+      <description>CMU 15445 24fall Project1 实现及优化</description>
+    </item>
     <item>
       <title>Ubuntu22.04虚拟机配置固定IP和VPN代理记录</title>
       <link>http://localhost:1313/posts/ubuntu22.04%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE/</link>
