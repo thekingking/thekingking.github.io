@@ -1,7 +1,7 @@
 ---
 title: "CMU 15445 24fall Project1"
 date: 2025-03-07T18:09:40+08:00
-lastMod: 2025-03-07T18:09:40+08:00
+lastMod: 2025-03-21T18:09:40+08:00
 draft: false # 是否为草稿
 author:  ["tkk"]
 
@@ -43,6 +43,8 @@ cover:
 
 ## 并发
 
+## 23fall解决思路
+
 我先讲讲我原本的并发加锁思路，这里所写的是从磁盘中获取页面，即读取不在内存中的页面。
 
 ![24fall-Project1-img1](/images/24fall-Project1-img1.png)
@@ -50,6 +52,8 @@ cover:
 23fall中的思路为对所有线性执行（不包含并发操作的部分）加bpm锁，每次调用bpm都需要获取bpm锁，对frame的操作（有IO操作）根据frame_id加锁，保证每个frame_id的操作能够独立执行，不受影响。同时先获取bpm锁，然后获取frame锁，然后释放bpm锁，最后释放frame锁，保证了顺序执行，不会被其他线程插队。但是这样写其实还存在问题，只是在23fall中的测试没有测出来，在24fall中遇到了，也是折腾了我好久（以为我的思路是正确的）。下面展示下原因：
 
 ![24fall-Project1-img2](/images/24fall-Project1-img2.png)
+
+## 错误的尝试
 
 并发失败的原因就是不能够保证page的顺序执行，有两种解决办法：
 
@@ -59,6 +63,33 @@ cover:
 ![24fall-Project1-img2](/images/24fall-Project1-img3.png)
 
 改了之后可以正常运行，但是不能够先获取frame锁，再获取page锁，这样你甚至无法通过本地测试（哈哈），具体哪个我忘了，有兴趣可以试试。具体原因是获取frame锁后获取page锁失败，导致一直持有bpm锁和frame锁，导致其他线程无法执行，因为释放pageGuard是需要获取bpm锁和frame锁的。
+
+这个方法能够通过p1的测试，但是在p2的测试中存在问题，所有有了下面的更好的解决办法
+
+## 最终大招：引入条件变量
+
+既然出现问题是因为写入和读取在在并发时不能够保证顺序执行，那么我就引入一个条件变量，在从内存中读取页面A之前判断是否有无页面A的脏页面没有写入或正在写入，具体流程如下：
+
+在bufferPoolManager添加属性如下：
+
+```cpp
+    /** @brief A set of dirty pages that need to be flushed to disk. */
+    std::unordered_set<page_id_t> dirty_pages_;
+    /** @brief A mutex to protect the dirty pages set. */
+    std::mutex flush_mutex_;
+    /** @brief A condition variable to notify the flusher thread that there are dirty pages to flush. */
+    std::condition_variable flush_cv_;
+```
+
+操作流程如下：
+
+1. FetchPage获取新页面中，在释放bpm_latch锁前，判断原本的frame是否是脏页，如果是脏页，将其写入dirty_pages_中，表明这个page_id对应的page是脏页并且没有写入
+2. 在释放bpm_latch锁后，进入脏页写入，成功写入脏页后将对应page_id从dirty_pages_中删除，表明对应page_id的脏页不存在了，同时使用notify_all唤醒等待的线程
+3. 在读取页面之前，使用flush_wait判断是否有脏页未写入，如果有就陷入等待，释放flush_mutex_锁（不释放frame的锁）
+
+下面是最终优化结果，后续应该不会再写bustub了，b+树也已经写完了，后面部分没啥必要再写了，和23fall差不多。
+
+![24fall-Project1-LeaderBoard-new](/images/24fall-Project1-LeaderBoard-new.png)
 
 ## 写在最后
 
