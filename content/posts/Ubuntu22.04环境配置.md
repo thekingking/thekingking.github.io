@@ -112,6 +112,35 @@ sdk list maven
 sdk install maven 3.8.6
 ```
 
+## Go
+访问[Golang官网](https://go.dev/dl/)获取最新版本链接
+```bash
+# 下载最新二进制包
+wget https://go.dev/dl/go1.23.7.linux-amd64.tar.gz
+
+# 解压到系统目录
+sudo tar -C /usr/local -xzf go1.23.7.linux-amd64.tar.gz
+
+# 编辑全局配置文件
+vim ~/.bashrc
+```
+
+```config
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go  # 可选，设置工作目录
+export GO111MODULE=on   # 启用模块支持
+export GOPROXY=https://goproxy.cn,direct  # 国内代理加速
+```
+
+```bash
+# 启动配置
+cd ~
+source .bashrc
+
+# 验证安装
+go version
+```
+
 ## build&test
 
 ```bash
