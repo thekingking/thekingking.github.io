@@ -6,8 +6,22 @@
     <description>Recent content in Tags on tkk&#39;s Blog</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 Mar 2025 10:18:12 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Mar 2025 10:02:43 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conda</title>
+      <link>http://localhost:1313/tags/conda/</link>
+      <pubDate>Sun, 23 Mar 2025 10:02:43 +0800</pubDate>
+      <guid>http://localhost:1313/tags/conda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sun, 23 Mar 2025 10:02:43 +0800</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Docker</title>
       <link>http://localhost:1313/tags/docker/</link>

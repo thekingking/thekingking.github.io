@@ -6,8 +6,15 @@
     <description>Recent content in 📚 文章 on tkk&#39;s Blog</description>
     <generator>Hugo -- 0.141.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 Mar 2025 10:18:12 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Mar 2025 10:02:43 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conda基础操作</title>
+      <link>http://localhost:1313/posts/conda%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sun, 23 Mar 2025 10:02:43 +0800</pubDate>
+      <guid>http://localhost:1313/posts/conda%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</guid>
+      <description>conda 基础操作记录</description>
+    </item>
     <item>
       <title>Docker配置一条龙</title>
       <link>http://localhost:1313/posts/docker%E9%85%8D%E7%BD%AE%E4%B8%80%E6%9D%A1%E9%BE%99/</link>
