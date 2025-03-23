@@ -1,7 +1,7 @@
 ---
 title: "Docker配置一条龙"
 date: 2025-03-22T10:18:12+08:00
-lastMod: 2025-03-22T10:18:12+08:00
+lastMod: 2025-03-23T10:18:12+08:00
 draft: false # 是否为草稿
 author: ["tkk"]
 
@@ -146,4 +146,11 @@ ssh -T git@github.com
 
 ## pytorch容器配置
 
-[conda配置](https://thekingking.github.io/posts/conda基本操作/)
+[conda配置](https://thekingking.github.io/posts/conda%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/)
+
+```bash
+# 安装gcc编译器
+sudo apt-get install build-essential python3-dev libicu-dev
+# 更新pip和setuptools确保兼容性
+python -m pip install --upgrade pip setuptools wheel
+```

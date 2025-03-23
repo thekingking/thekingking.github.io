@@ -75,6 +75,10 @@ conda config --get channels  # 输出应为['conda-forge', 'defaults']
 ```bash
 # 安装包
 conda install package_name
+# 指定版本安装
+conda install numpy=1.24.1
+# 指定频道安装
+conda install -c conda-forge numpy=1.24.1
 
 # 查看已安装的包
 conda list 
