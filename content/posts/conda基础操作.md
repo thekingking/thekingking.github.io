@@ -5,11 +5,11 @@ lastMod: 2025-03-23T10:02:43+08:00
 draft: false # 是否为草稿
 author: ["tkk"]
 
-categories: [conda, python]
+categories: [Conda, Python]
 
-tags: [conda, python]
+tags: [Conda, Python]
 
-keywords: [conda, python]
+keywords: [Conda, Python]
 
 description: "conda 基础操作记录" # 文章描述，与搜索优化相关
 summary: "conda 基础操作记录" # 文章简单描述，会展示在主页

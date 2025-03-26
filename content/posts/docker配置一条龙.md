@@ -5,11 +5,11 @@ lastMod: 2025-03-23T10:18:12+08:00
 draft: false # 是否为草稿
 author: ["tkk"]
 
-categories: [docker, 配置]
+categories: [Docker, 配置]
 
-tags: [docker, 配置]
+tags: [Docker, 配置]
 
-keywords: [docker, 配置]
+keywords: [Docker, 配置]
 
 description: "docker环境配置记录" # 文章描述，与搜索优化相关
 summary: "docker环境配置记录" # 文章简单描述，会展示在主页

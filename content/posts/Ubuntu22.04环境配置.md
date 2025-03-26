@@ -113,7 +113,9 @@ sdk install maven 3.8.6
 ```
 
 ## Go
+
 访问[Golang官网](https://go.dev/dl/)获取最新版本链接
+
 ```bash
 # 下载最新二进制包
 wget https://go.dev/dl/go1.23.7.linux-amd64.tar.gz
